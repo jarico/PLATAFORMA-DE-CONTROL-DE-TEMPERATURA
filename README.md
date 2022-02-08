@@ -87,6 +87,14 @@ Specify port (e.g. COM4 for Windows or /dev/ttyUSB0 for Linux): COM7
 ```
 El sistema detectará el dispositivo como un dispositivo de la familia Arduino y el experimento se ejecutará de forma habitual. Este procedimiento deberá realizarse solo cuando se realice una nueva asignación al puerto COM por parte del SO de la máquina.
 
+## Parametrización del bloque ⚙️
+El bloque _TemperatureControlLab_, que permite trabajar con el dispositivo, puede parametrizarse en función de las necesidades del usuario. Los parámetros editables son:
+
+*  Potencia máxima Q1 (%). Limita la potencia disipada en el transistor 1. Por defecto 100%
+*  Potencia máxima Q2 (%). Limita la potencia disipada en el transistor 1. Por defecto 100%
+*  Temperatura máxima T1 (ºC). Limita la temperatura máxima que puede alcanzar el transistor T1. Por defecto 80ºC.
+*  Temperatura máxima T2 (ºC). Limita la temperatura máxima que puede alcanzar el transistor T2. Por defecto 80ºC.
+*  Temperatura umbral para indicadores luminosos (ºC). Establece el valor de temperatura al que se activan los indicadores luminosos. Por defecto 40ºC.
 
 ## Contribuyendo 🖇️
 
