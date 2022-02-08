@@ -44,16 +44,23 @@ MATLAB Support Package for Arduino Hardware
 
 ### Instalación 🔧
 
-Para utilizar ..... Falta por hacer
+Para instalar la librería basta con ubicar la capeta con los archivos del proyecto en la ubicación deseada (téngase en cuenta que el directorio no deberá alterarse posteriormente) y ejecutar el archivo Install.m, para ello puede ejecutarse en la línea de comandos 
 
+```
+Install
+```
+
+El script añadirá al Path la carpeta que contiene las librerías junto con los ejemplos, de forma que estos puedan emplearse desde cualquier ruta. A partir de este momento en el gestor de librerías de Simulink aparecerá la librería TemperatureLabLibrary, que contiene el bloque empleado para trabajar con el dispositivo.
+
+_Además del método anterior puede emplearse cualquier alternativa que se considere oportuna. No es necesario añadir al Path de Matlab los directorios si en el directorio de trabajo se mantiene los archivos empleado por el dispositivo_
 
 
 ## Ejecutando la primera prueba de funcionamiento ⚙️
 
-Para verificar el funcionamiento del dispositivo se recomienda emplear el Ejemplo 1, que realiza una prueba de control en lazo cerrado. Para ello debe abrirse el archivo _EJ1_LazoCerradoSISO.slx_ bien desde el explorador de archivos o ejecutando  
+Para verificar el funcionamiento del dispositivo se recomienda emplear el Ejemplo 1, que realiza una prueba de control en lazo cerrado. Para ello debe abrirse el archivo _EJ_LazoCerradoSISO.slx_ bien desde el explorador de archivos o ejecutando  
 
 ```
-open EJ1_LazoCerradoSISO
+open EJ_LazoCerradoSISO
 ```
 Para ejecutar el experimento del ejemplo basta con darle al Play en Simulink. La primera vez que se trabaje con el dispositivo en una máquina, esta buscará el dispositivo en el equipo, emitiendo el siguiente mensaje (este procedimiento tarda unos pocos segundos): 
 
