@@ -1,9 +1,9 @@
 # PLATAFORMA PARA EL CONTROL DE TEMPERATURA
-Este repositorio contiene los archivos necesarios para trabajar con la plataforma didáctica para la docencia en la ingeniería de control implementada en la Universidad de La Rioja.
+Este repositorio contiene los archivos necesarios para trabajar con la plataforma didáctica para la docencia en ingeniería de control desarrollada por la Universidad de La Rioja.
 
 Este dispositivo consiste en una revisión de la plataforma TCLab (Temperature Control Lab) desarrollada por John D. Hedengren.
 
-En este repositorio se incluyen los archivos necesarios para el empleo del dispositivo junto con Matlab Simulink, así como algunos ejemplos de aplicación. El proyecto se encuentra abierto para que los interesados puedan colaborar con las modificaciones/ampliaciones que considere oportunas.
+En este repositorio se incluyen los archivos necesarios para el empleo del dispositivo junto con Matlab Simulink, así como algunos ejemplos de aplicación. El proyecto se encuentra abierto para que los interesados puedan colaborar con las modificaciones/ampliaciones que consideren oportunas.
 
 ![](https://github.com/jarico/PLATAFORMA-DE-CONTROL-DE-TEMPERATURA/blob/11e754b69ef4e833b7cd2dbf5b96c0ab40f945d2/Dispositivo.jpg)
 
