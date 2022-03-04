@@ -3,3 +3,4 @@
 Folder=pwd;
 Folder=strcat(Folder,'\DriverAndExamples');
 addpath(Folder);
+savepath
