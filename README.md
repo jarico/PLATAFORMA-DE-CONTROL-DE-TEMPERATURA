@@ -87,6 +87,14 @@ Specify port (e.g. COM4 for Windows or /dev/ttyUSB0 for Linux): COM7
 ```
 El sistema detectará el dispositivo como un dispositivo de la familia Arduino y el experimento se ejecutará de forma habitual. Este procedimiento deberá realizarse solo cuando se realice una nueva asignación al puerto COM por parte del SO de la máquina.
 
+***Importante. Problemas de soporte en las nuevas versiones de Matlab con las placas Arduino Nano*** 
+
+Si llegados a este punto, Matlab reporta un error por falta de compatibilidad con la tarjeta Arduino Nano, debe modificarse la línea 35  el fichero DriverTemperatureLab.m. La línea 35 debera editarse para que presente el siguiente contenido:
+```
+a = arduino(com_port,'ProMini328_5V');
+```
+Esta modificación permitirá que el dispositivo trabaje de forma adecuada.
+
 ## Parametrización del bloque ⚙️
 El bloque _TemperatureControlLab_, que permite trabajar con el dispositivo, puede parametrizarse en función de las necesidades del usuario. Los parámetros editables son:
 
