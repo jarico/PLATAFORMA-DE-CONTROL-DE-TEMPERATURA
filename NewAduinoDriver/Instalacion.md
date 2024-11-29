@@ -43,6 +43,8 @@ En la carpeta `NewArduinoDriver\URlabFirmware` se encuentra el _sketch_ que debe
 
 Para instalar la librería:  
 
+IMPORTANTE: Este paso no es necesario se ya se ha instalado la librería del sistema de comunicación anterior.
+
 1. Copie la carpeta del proyecto en la ubicación deseada. **Tenga en cuenta que el directorio no debe modificarse posteriormente.**  
 2. Ejecute el archivo `Install.m` desde la línea de comandos de MATLAB:  
 
@@ -50,11 +52,39 @@ Para instalar la librería:
    Install
    ```  
 
-El script añadirá al _path_ de MATLAB la carpeta que contiene las librerías y los ejemplos, de forma que puedan utilizarse desde cualquier ubicación.  
-
-Una vez instalada, en el gestor de librerías de Simulink aparecerá la librería **TemperatureLabLibrary**, que incluye el bloque necesario para trabajar con el dispositivo.  
+El script añadirá al _path_ de MATLAB la carpeta que contiene las librerías y el ejemplos, de forma que puedan utilizarse desde cualquier ubicación.  
 
 _Nota: Si prefiere, puede usar cualquier otro método para configurar la librería. No es necesario añadir los directorios al _path_ de MATLAB si los archivos necesarios para el dispositivo permanecen en el directorio de trabajo._  
 
 ---
 
+Aquí tienes un nuevo apartado "Empleo del dispositivo" basado en tu texto original, mejorado y estructurado para mayor claridad:  
+
+---
+
+## Empleo del dispositivo ⚙️  
+
+El dispositivo incluye un ejemplo práctico para el control en lazo cerrado, proporcionado en el archivo **URLabControlLC**. Este ejemplo puede utilizarse como punto de partida para desarrollar aplicaciones específicas.  
+
+### Pasos para usar el ejemplo:  
+1. **Abrir el archivo:**  
+   Localice y abra el archivo `URLabControlLC.slx` en Simulink.  
+
+2. **Configurar los parámetros:**  
+   Antes de ejecutar el modelo, asegúrese de que:  
+   - El puerto COM asignado al dispositivo está correctamente configurado en el los bloques (**Serial configuration, Serial Send y Serial Recibe**) de comunicación serie del modelo. Estos se encuentran dentro del bloque URlab v2 
+   - El dispositivo está conectado al puerto USB A de su ordenador y detectado correctamente.  
+
+3. **Ejecutar el simulador:**  
+   Una vez configurado, ejecute el modelo en Simulink. Este control en lazo cerrado puede ajustarse o ampliarse según las necesidades del usuario.  
+
+4. **Personalización:**  
+   Puede utilizar este ejemplo como base para crear sus propios diseños de control. Simplemente modifique los bloques y parámetros según los requisitos específicos de su proyecto.  
+
+### Notas importantes:  
+- Asegúrese de que los drivers del dispositivo CH340C estén instalados y que el firmware correcto haya sido programado previamente.  
+- Si encuentra problemas de comunicación, verifique que el puerto COM configurado en el modelo coincida con el asignado al dispositivo en su sistema operativo.  
+
+---
+
+Si necesitas más detalles o una ampliación del contenido, ¡hazmelo saber! 😊
