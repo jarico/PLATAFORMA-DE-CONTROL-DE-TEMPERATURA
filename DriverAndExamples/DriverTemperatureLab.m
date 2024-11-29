@@ -32,7 +32,8 @@ if (isempty(icount))
       disp('  Search for /dev/ttyUSB* or /dev/ttyACM*. The port number is *.')
       disp('')
       com_port = input('Specify port (e.g. COM4 for Windows or /dev/ttyUSB0 for Linux): ','s');
-      a = arduino(com_port,'Nano');
+      %a = arduino(com_port,'Nano');
+      a = arduino(com_port,'ProMini328_5V');
       disp(a)
    end
    icount = 0;
