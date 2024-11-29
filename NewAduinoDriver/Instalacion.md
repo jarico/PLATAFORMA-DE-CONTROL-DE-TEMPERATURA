@@ -56,9 +56,6 @@ El script añadirá al _path_ de MATLAB la carpeta que contiene las librerías y
 
 _Nota: Si prefiere, puede usar cualquier otro método para configurar la librería. No es necesario añadir los directorios al _path_ de MATLAB si los archivos necesarios para el dispositivo permanecen en el directorio de trabajo._  
 
----
-
-Aquí tienes un nuevo apartado "Empleo del dispositivo" basado en tu texto original, mejorado y estructurado para mayor claridad:  
 
 ---
 
@@ -85,6 +82,4 @@ El dispositivo incluye un ejemplo práctico para el control en lazo cerrado, pro
 - Asegúrese de que los drivers del dispositivo CH340C estén instalados y que el firmware correcto haya sido programado previamente.  
 - Si encuentra problemas de comunicación, verifique que el puerto COM configurado en el modelo coincida con el asignado al dispositivo en su sistema operativo.  
 
----
 
-Si necesitas más detalles o una ampliación del contenido, ¡hazmelo saber! 😊
