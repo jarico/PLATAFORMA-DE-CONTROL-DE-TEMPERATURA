@@ -21,7 +21,7 @@ FLOATUNION_t T1, T2, U;
 int i   = 0;
 int cnt = 0;
 
-unsigned long t_anterior, t_lecturas, t_lecturas_ant, t_actual;
+unsigned long t_anterior, t_lecturas, t_lecturas_ant, t_actual, t_recepcion;
 
 float u1, u2;
 
@@ -45,10 +45,20 @@ void setup() {
   u1 = 0;
   u2 = 0;
   t_lecturas_ant = 0;
-  t_anterior = 0;
+  t_anterior     = 0;
+  t_recepcion    = 0;
 }
 
 void loop() {
+  // Lectura de temperaturas
+  t_lecturas = millis ();
+  if ((t_lecturas - t_lecturas_ant) >= 50){
+    t_lecturas_ant = t_lecturas;
+    T1.val  = 100 * (5.0 * (float)analogRead(A0)/1024.0 - 0.5); //0.9 * T1.val + 0.1 * 100 * (5.0 * (float)analogRead(A0)/1024.0 - 0.5);
+    T2.val  = 100 * (5.0 * (float)analogRead(A1)/1024.0 - 0.5); //0.9 * T2.val + 0.1 * 100 * (5.0 * (float)analogRead(A1)/1024.0 - 0.5);
+  }
+
+  // Escritura de valores PWM
   int n_datos = Serial.available();
   if (n_datos>9){
     int i = 0; 
@@ -58,7 +68,7 @@ void loop() {
     }
     i--;
     if (buff[i]==10 && buff[i-1] == 13){ 
-      delay(10);
+      t_recepcion = millis();
       // Generación de salidas PWM
       U.b[0] = buff[i-9];
       U.b[1] = buff[i-8];
@@ -79,17 +89,20 @@ void loop() {
       if (T2.val>TempMax){pwm1 = 0;}
       analogWrite(Q1,pwm1);
       analogWrite(Q2,pwm2);
+      delay(20);
     }
 
   }
 
+// Desconecto los transistores si no se reciben datos en 10 segundos
+if (millis() - t_recepcion >= 10000){
+    u1 = 0;
+    u2 = 0;
+    analogWrite(Q1,0);
+    analogWrite(Q2,0);
+}  
     
-  t_lecturas = millis ();
-  if ((t_lecturas - t_lecturas_ant) >= 50){
-    t_lecturas_ant = t_lecturas;
-    T1.val  = 0.9 * T1.val + 0.1 * 100 * (5.0 * (float)analogRead(A0)/1024.0 - 0.5);
-    T2.val  = 0.9 * T2.val + 0.1 * 100 * (5.0 * (float)analogRead(A1)/1024.0 - 0.5);
-  }
+
 
   t_actual = millis();
   if ((t_actual - t_anterior) >= 500){
@@ -98,10 +111,23 @@ void loop() {
     Serial.write(T1.b,4);
     Serial.write(T2.b,4);
     Serial.write('\n');  
-    int pwmLed1 = map((int)T1.val, 20, 100, 0, 255);
-    int pwmLed2 = map((int)T2.val, 20, 100, 0, 255);
-    analogWrite(Led1,pwmLed2);
-    analogWrite(Led2,pwmLed2);
+
+    if (T1.val>=40){
+      int pwmLed1 = map((int)T1.val, 40, 100, 0, 255);
+      analogWrite(Led1,pwmLed1);
+    }
+    else{
+      analogWrite(Led1,0);
+    }
+    
+    if (T2.val>=40){
+      int pwmLed2 = map((int)T2.val, 40, 100, 0, 255);
+      analogWrite(Led2,pwmLed2);
+    }
+    else{
+      analogWrite(Led2,0);
+    }
+   
   }
   
 }
